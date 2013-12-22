@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  author: MyString
+  isbn: MyString
+  recommended_by: MyString
+  status: MyString
+  arrive_date: 2013-12-03
+  note: MyText
+
+two:
+  name: MyString
+  author: MyString
+  isbn: MyString
+  recommended_by: MyString
+  status: MyString
+  arrive_date: 2013-12-03
+  note: MyText

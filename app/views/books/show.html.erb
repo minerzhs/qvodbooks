@@ -1,0 +1,36 @@
+<p>
+  <strong>ISBN: </strong>
+  <%= @book.isbn %> 
+</p>
+
+<p>
+  <strong>Name: </strong>
+  <%= @book.name %>
+</p>
+
+<p>
+  <strong>Author: </strong>
+  <%= @book.author %>
+</p>
+
+<p>
+  <strong>Recommanded By: </strong>
+  <%= @book.recommended_by %> 
+</p>
+
+<p>
+  <strong>Status: </strong>
+  <%= @book.status %> 
+</p>
+
+<p>
+  <strong>Date of Registered: </strong>
+  <%= @book.arrive_date %> 
+</p>
+
+<p>
+  <strong>Note: </strong>
+  <%= @book.note %> 
+</p>
+
+<%= link_to 'Qvod Library', books_path %>
