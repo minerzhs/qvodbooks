@@ -24,9 +24,12 @@
     <td><%= book.recommended_by %></td>
     <td><%= book.status %></td>
     <td><%= book.arrive_date %></td>
-    <td><%= link_to 'Show', book_path(book) %></td>
+    <td><%= link_to 'Detail', book_path(book) %></td>
     <td><%= link_to 'Edit', edit_book_path(book) %></td>
     <td><%= link_to 'Delete', book_path(book), method: :delete, data: { confirm: "Are you sure?"} %></td>
   </tr>
   <% end %>
 </table>
+
+<h1>下面是测试用的</h1>
+<%= current_user.id %>

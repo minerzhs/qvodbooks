@@ -15,7 +15,7 @@
 
 <p>
   <strong>Recommanded By: </strong>
-  <%= @book.recommended_by %> 
+  <%= @book.recommended_by %>
 </p>
 
 <p>
@@ -33,4 +33,6 @@
   <%= @book.note %> 
 </p>
 
+<%= link_to "Borrow", {:controller =>'records', :action => 'new', :bk_id => @book.id} %> 
+<br>
 <%= link_to 'Qvod Library', books_path %>
