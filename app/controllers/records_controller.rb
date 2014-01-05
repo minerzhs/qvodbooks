@@ -4,6 +4,7 @@ class RecordsController < ApplicationController
 
   def index
     @records = Record.all
+    @bk_name = Book.name
   end
 
   def new
@@ -20,6 +21,10 @@ class RecordsController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def show
+    @record = Record.find(params[:id])
   end
 
   def destroy

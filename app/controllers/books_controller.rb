@@ -13,6 +13,7 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
     @book.recommended_by = current_user.email
+    @book.status = 'To buy'
     if @book.save
       redirect_to @book
     else

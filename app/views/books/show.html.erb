@@ -5,19 +5,19 @@
 
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @book.name %></dd>
+  <dd><%= @book.name %><br></dd>
   <dt><strong><%= model_class.human_attribute_name(:author) %>:</strong></dt>
-  <dd><%= @book.author %></dd>
+  <dd><%= @book.author %><br></dd>
   <dt><strong><%= model_class.human_attribute_name(:isbn) %>:</strong></dt>
-  <dd><%= @book.isbn %></dd>
+  <dd><%= @book.isbn %><br></dd>
   <dt><strong><%= model_class.human_attribute_name(:recommended_by) %>:</strong></dt>
-  <dd><%= @book.recommended_by %></dd>
+  <dd><%= @book.recommended_by %><br></dd>
   <dt><strong><%= model_class.human_attribute_name(:status) %>:</strong></dt>
-  <dd><%= @book.status %></dd>
+  <dd><%= @book.status %><br></dd>
   <dt><strong><%= model_class.human_attribute_name(:arrive_date) %>:</strong></dt>
-  <dd><%= @book.arrive_date %></dd>
+  <dd><%= @book.arrive_date %><br></dd>
   <dt><strong><%= model_class.human_attribute_name(:note) %>:</strong></dt>
-  <dd><%= @book.note %></dd>
+  <dd><%= @book.note %><br></dd>
 </dl>
 
 <div class="form-actions">
@@ -25,6 +25,7 @@
               books_path, :class => 'btn'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_book_path(@book), :class => 'btn' %>
+  <%= link_to "Borrow", {:controller => 'records', :action => 'new', :bk_id => @book.id}, :class => 'btn btn-primary' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
               book_path(@book),
               :method => 'delete',
