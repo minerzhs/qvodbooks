@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20131223124330) do
     t.datetime "updated_at"
   end
 
+  add_index "books", ["isbn"], name: "index_books_on_isbn"
+
   create_table "records", force: true do |t|
     t.integer  "book_id"
     t.integer  "user_id"

@@ -1,25 +1,42 @@
-<h1>My History</h1>
-
-<table>
-  <tr>
-    <th>Book</th>
-    <th>User</th>
-    <th>Check out date</th>
-    <th>Check in date</th>
-    <th></th>
-    <th></th>
-  </tr>
-
-  <% @records.each do |record| %>
-  <tr>
-    <td><%= record.book_id %></td>
-    <td><%= record.user_id %></td>
-    <td><%= record.check_out_date %></td>
-    <td><%= record.check_in_date %></td>
-    <td><%= link_to 'Delete', record_path(record), method: :delete, data: { confirm: "Are you sure?"} %> </td>
-    <td><%= link_to 'Return the book', edit_record_path(record) %></td>
-  </tr>
-  <% end %>
+<%- model_class = Record -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:book_id) %></th>
+      <th><%= model_class.human_attribute_name(:user_id) %></th>
+      <th><%= model_class.human_attribute_name(:check_out_date) %></th>
+      <th><%= model_class.human_attribute_name(:check_in_date) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @records.each do |record| %>
+      <tr>
+        <td><%= link_to record.id, record_path(record) %></td>
+        <td><%= record.book_id %></td>
+        <td><%= record.user_id %></td>
+        <td><%= record.check_out_date %></td>
+        <td><%= record.check_in_date %></td>
+        <td><%=l record.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_record_path(record), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      record_path(record),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<%= link_to 'Book List', books_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_record_path,
+            :class => 'btn btn-primary' %>
