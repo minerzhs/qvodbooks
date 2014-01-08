@@ -20,3 +20,7 @@ div.navbar-fixed-top{
   position: static;
 
 }
+
+ul.account{
+  float: right !important;
+}
