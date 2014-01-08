@@ -8,10 +8,17 @@ class RecordsController < ApplicationController
   end
 
   def new
-    @record = Record.new
-    @record.book_id = params[:bk_id]
-    @record.user_id = current_user.id
-    @record.check_out_date = Date.today
+    @book = Book.find(params[:bk_id])
+    if @book.status == "To buy"
+      redirect_to books_path, :notice => "This book is not bought yet."
+    elsif @book.status == "Lent"
+      redirect_to books_path :notice => "This book is lent out."
+    else
+      @record = Record.new
+      @record.book_id = params[:bk_id]
+      @record.user_id = current_user.id
+      @record.check_out_date = Date.today
+    end
   end
 
   def create
@@ -44,6 +51,8 @@ class RecordsController < ApplicationController
     @record.update(record_params)
     redirect_to records_path
   end
+
+
 
   private
     def record_params

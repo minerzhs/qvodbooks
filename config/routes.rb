@@ -19,14 +19,14 @@ Qvodbooks::Application.routes.draw do
   resources :books do
     resources :records
   end
-  resources :books, :records
+  resources :records
 
   # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
+  resources :books do
+     member do
+       post 'buy'
+     end
+  end
   #
   #     collection do
   #       get 'sold'

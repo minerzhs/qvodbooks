@@ -4,9 +4,12 @@
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
+<%= link_to "Recommend a New Book",
             new_book_path,
             :class => 'btn btn-primary' %>
+<br>
+<br>
+
 
 <table class="table table-striped">
   <thead>
@@ -14,7 +17,7 @@
     <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:author) %></th>
-      <th><%= model_class.human_attribute_name(:isbn) %></th>
+      <th>ISBN</th>
       <th><%= model_class.human_attribute_name(:recommended_by) %></th>
       <th><%= model_class.human_attribute_name(:status) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>

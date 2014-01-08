@@ -31,4 +31,8 @@
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
+  <% if @book.status == "To buy" %>
+    <%= link_to "Register", buy_book_path(@book), :method => 'post' %>
+  <% else %>
+  <% end %>
 </div>
