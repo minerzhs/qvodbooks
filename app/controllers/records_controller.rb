@@ -10,9 +10,9 @@ class RecordsController < ApplicationController
   def new
     @book = Book.find(params[:bk_id])
     if @book.status == "To buy"
-      redirect_to books_path, :notice => "This book is not bought yet."
+      redirect_to books_path, :alert => "This book is not bought yet."
     elsif @book.status == "Lent"
-      redirect_to books_path :notice => "This book is lent out."
+      redirect_to books_path, :alert => "This book is lent out."
     else
       @record = Record.new
       @record.book_id = params[:bk_id]
@@ -24,6 +24,9 @@ class RecordsController < ApplicationController
   def create
     @record = Record.new(record_params)
     if @record.save
+      @book = Book.find(@record.book_id)
+      @book.status = "Lent"
+      @book.save
       redirect_to records_path
     else
       render 'new'
@@ -49,6 +52,9 @@ class RecordsController < ApplicationController
   def update
     @record = Record.find(params[:id])
     @record.update(record_params)
+    @book = Book.find(@record.book_id)
+    @book.status = "To let"
+    @book.save
     redirect_to records_path
   end
 
