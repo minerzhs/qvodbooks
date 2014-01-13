@@ -1,10 +1,10 @@
 Qvodbooks::Application.routes.draw do
-  devise_for :users
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-
+  #welcome's routes
   root to: 'welcome#index'
-
+  get 'welcome/leave' => 'welcome#leave'
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
@@ -16,6 +16,7 @@ Qvodbooks::Application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+  devise_for :users
   resources :books do
     resources :records
   end
