@@ -4,5 +4,5 @@ class User < ActiveRecord::Base
   has_many :records, dependent: :destroy
   has_many :users, through: :records
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable
 end
