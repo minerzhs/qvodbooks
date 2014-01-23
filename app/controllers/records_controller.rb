@@ -3,8 +3,12 @@ class RecordsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
 
   def index
-    @records = Record.all
-    @bk_name = Book.name
+    @user = current_user
+    if !params[:my_records]
+      @records = Record.all
+    else
+      @records = @user.records.all
+    end
   end
 
   def new
