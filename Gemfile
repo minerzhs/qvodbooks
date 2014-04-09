@@ -4,6 +4,7 @@ gem 'devise'
 gem 'twitter-bootstrap-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
+gem 'therubyracer'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
